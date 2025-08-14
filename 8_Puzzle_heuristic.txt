@@ -1,0 +1,47 @@
+The puzzle is represented as an n x n grid.
+
+The blank tile is represented by 0.
+
+A State class tracks:
+
+the parent state
+
+the current board configuration
+
+the current move number
+
+On each move:
+
+All 4 possible blank moves (left, right, up, down) are generated.
+
+Already visited states are skipped.
+
+For each new child, the misplaced tile heuristic is calculated.
+
+The state with the lowest heuristic is selected for further expansion.
+
+When the goal state is found, the complete path (from start → goal) is printed.
+
+
+
+function solve(puzzle):
+    visited ← empty list
+    stack ← empty
+    push initial_state to stack
+    add initial_state.board to visited
+
+    while stack is not empty:
+        state ← pop stack
+
+        if state == goal:
+            print path and return
+
+        for each possible move:
+            if move is valid:
+                new_board ← swap blank
+                if new_board not in visited:
+                    child ← new state
+                    heuristic ← displaced_count(child)
+                    keep the child with lowest heuristic
+
+        push child_with_lowest_heuristic to stack
