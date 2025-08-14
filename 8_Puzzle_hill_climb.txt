@@ -1,0 +1,22 @@
+8-Puzzle Solver Using Hill Climbing (Displaced Tile Heuristic)
+
+This project implements the 8-Puzzle problem using a Hill Climbing search algorithm with the Displaced Tile Count as the heuristic function.
+Hill Climbing selects the best next move based on the heuristic, aiming to reach the goal configuration by continuously improving the puzzle state.
+
+However, since Hill Climbing can become trapped in local maxima, the program detects these situations and prints the path taken before termination.
+
+hill_climb(start):
+    visited ← {start}
+    current ← start
+
+    while True:
+        if current is goal:
+            print path; exit
+
+        successors ← all valid moves of current
+        choose child with lowest heuristic
+
+        if no child improves heuristic:
+            print "local maxima"; print path; exit
+        else:
+            current ← best child
