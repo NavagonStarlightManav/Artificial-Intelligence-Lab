@@ -121,7 +121,7 @@ def get_state(s, visited, n, goal):
                     visited.append(new_board)
                     c = displaced_count(child, n)
 
-                    # Keep the one with the lowest displaced count
+                    #Keep the one with the lowest displaced count
                     if disp_count > c:
                         disp_count = c
                         to_push = child
